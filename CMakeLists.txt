@@ -10,21 +10,21 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include(FetchContent)
 FetchContent_Declare(
   googletest
-  URL https://github.com/google/googletest/archive/71815bbf7de6e10c11821d654a2fae2cf42de0f7.zip
+  GIT_REPOSITORY https://github.com/google/googletest.git
+  GIT_TAG main
 )
 FetchContent_Declare(
   benchmark
-  URL https://github.com/google/benchmark/archive/24e0bd827a8bec8121b128b0634cb34402fb3259.zip
+  GIT_REPOSITORY https://github.com/google/benchmark.git
+  GIT_TAG main
 )
 
+set(BENCHMARK_ENABLE_TESTING OFF)
 FetchContent_MakeAvailable(googletest)
 FetchContent_MakeAvailable(benchmark)
 
 
-
-
 include_directories(${CMAKE_SOURCE_DIR})
-
 
 add_subdirectory(bench)
 add_subdirectory(test)
